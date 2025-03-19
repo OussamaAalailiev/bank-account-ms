@@ -9,3 +9,16 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
       interval: 10s
+  ebank-config-service:
+    build: ./config-service
+    container_name: ebank-config-service
+    ports:
+      - '9999:9999'
+    expose:
+      - '9999'
+    environment:      # environment varaible named 'DISCOVERY_SERVICE_URL' pour communiquer avec le conteneur nomme 'ebank-discovery-service' au lieu du localhost:
+      - DISCOVERY_SERVICE_URL=http://ebank-discovery-service:8761/eureka
+    depends_on:
+      ebank-discovery-service:
+        condition:
+          service_healthy

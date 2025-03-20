@@ -15,6 +15,7 @@ export class CustomersComponent implements OnInit {
     this.http.get("http://localhost:8888/CUSTOMER-SERVICE/customers")
       .subscribe({
         next: (data: any) => {
+          console.log(data);
           this.customers = data;
         },
         error: (err: any) => {

@@ -1,1 +1,22 @@
-<p>accounts works!</p>
+<div class="p-3">
+  <div class="card">
+    <div class="card-body">
+      <table class="table" *ngIf="accounts">
+        <thead>
+        <tr>
+          <th>ID</th><th>Balance</th><th>Type</th><th>Currency</th><th>Client Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let acc of accounts">
+          <td>{{acc.id}}</td>
+          <td>{{acc.balance}}</td>
+          <td>{{acc.type}}</td>
+          <td>{{acc.currency}}</td>
+          <td>{{acc.customer.firstName}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

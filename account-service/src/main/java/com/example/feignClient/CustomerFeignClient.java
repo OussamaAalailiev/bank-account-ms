@@ -10,7 +10,7 @@ import java.util.List;
 
 // This Microservice (MS) 'ACCOUNT-SERVICE' will talk to the MS named 'CUSTOMER-SERVICE' through this declarative interface with the help of 'OpenFeign',
 //   we just specify the methods that we want to get from the MS (methods names here does not matter):
-@FeignClient(name = "CUSTOMER-SERVICE")
+@FeignClient(name = "customer-service")
 public interface CustomerFeignClient {
     @GetMapping(path = "/customers/{id}")
     @CircuitBreaker(name = "customerService", fallbackMethod = "getDefaultCustomer")

@@ -102,7 +102,24 @@
 		</dependencies>
 	</dependencyManagement>
 
-<!--	<build>-->
+	<!-- pom.xml is now configured to use the Spring Boot Maven Plugin. This plugin repackages your JAR and adds the necessary manifest entries	-->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!--	<build>-->
 <!--		<plugins>-->
 <!--			<plugin>-->
 <!--				<groupId>org.apache.maven.plugins</groupId>-->

@@ -39,4 +39,9 @@ public class BankAccountRestController {
         return bankAccount;
     }
 
+    @GetMapping("/test-customers")
+    public List<Customer> testCustomers() {
+        return customerFeignClient.getAllCustomers();
+    }
+
 }
